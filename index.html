@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            #canvas {
+                transform: scale(2);
+                image-rendering: pixelated;
+                transform-origin: top left;
+            }
+        </style>
+        <script defer type="module">
+            console.log('kek')
+            import { initGame} from './src/release.js'
+            document.addEventListener('DOMContentLoaded', async() => {
+                window.game = await initGame(800,400)
+                game.bindCanvas('#canvas')
+                setInterval(()=>{
+                    console.time('tick')
+                    game.drawBuffer()
+                    game.tick();
+                    console.timeEnd('tick')
+                },60)
+
+            })
+        </script>
+        <!-- <script defer>
+            let timer = setInterval(() => {
+                if (typeof buffer === 'undefined') return
+                console.log('loaded')
+
+                canvas.width = size
+                canvas.height = size
+                window.drawBuffer = ()=>{
+                    var idata = new ImageData(buffer, size, size)
+                    ctx.putImageData(idata, 0, 0)
+                }
+                drawBuffer()
+                clearInterval(timer)
+            }, 10)
+            let i = 0
+            setInterval(() => {
+                console.time('t')
+                init(size, i % 2==0);
+                drawBuffer()
+                console.timeEnd('t')
+                i++
+            }, 2000)
+        </script> -->
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+    </body>
+</html>

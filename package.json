@@ -1,0 +1,13 @@
+{
+  "name": "pure-wasm-game-of-life",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "wat2wasm ./src/wat/release.wat -o ./src/wasm/release.wasm",
+    "start": "npx serve ."
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
