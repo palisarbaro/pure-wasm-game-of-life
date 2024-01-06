@@ -2,10 +2,10 @@
     (global $rnd (import "js" "rnd") (mut i64))
     (memory $0 1000 1000)
     (export "memory" (memory $0)) ;; layout buf1(buffSize=w*h*4(i32)), buff2(buffSize); coordshift(4(i32)*8(neighbours)*2(coords))
-    (global $buf1 (mut i32) (i32.const 0))
-    (global $buf2 (mut i32) (i32.const 0))
-    (global $buffSize (mut i32) (i32.const 0))
-    (global $coordshift (mut i32) (i32.const 0))
+    (global $buf1 (mut i32) (i32.const 0)) ;; ptr
+    (global $buf2 (mut i32) (i32.const 0)) ;; ptr
+    (global $buffSize (mut i32) (i32.const 0)) ;; in bytes
+    (global $coordshift (mut i32) (i32.const 0)) ;; ptr
     (global $width (mut i32) (i32.const 0))
     (global $height (mut i32) (i32.const 0))
     (global $alive (mut i32) (i32.const 0xff00ff00))
